@@ -17,11 +17,29 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.description {
+  text-align: left;
+  padding: var(--lengthMd2);
+}
+
+.description h3 {
+  font-size: var(--lengthLg3);
+  margin:var(--lengthSm1) 0;
+}
+
+.description p {
+  font-size: var(--lengthMd3);
+}
+
+.App-header .img-tab {
+  display: none;
 }
 
 .App-link {
@@ -34,5 +52,12 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+@media (min-width:50em) {
+  .App-header .img-tab {
+    display: block;
   }
 }
