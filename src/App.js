@@ -1,10 +1,13 @@
 import './App.css';
 import Navigation from './components/Navigation';
 import { useEffect, useState } from 'react';
+
+// 3rd party
 import { Link, animateScroll as scroll } from 'react-scroll';
+import { FaCaretUp } from 'react-icons/fa';
 
+// local code
 import { projects } from './utils/mock';
-
 import logo from './diamond.png';
 
 const APP_STATE = {
@@ -57,7 +60,14 @@ function App() {
             I am Web and GIS Developer
           </p>
 
-          <Link className="btn btn-outline-primary" to="projects">
+          <Link 
+            className="btn btn-outline-primary" 
+            to="projects"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
               EXPLORE PROJECTS
           </Link>
          
@@ -114,6 +124,13 @@ function App() {
         </div>
 
         {/* scrollToTop */}
+
+        { state.updateNav && 
+          <button className="btn btn-scroll-up" onClick={scrollToTop}>
+            <FaCaretUp />
+          </button>
+        }
+        
 
       </main>
 

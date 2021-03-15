@@ -50,6 +50,8 @@ code {
   margin:var(--lengthSm2) 0;
   cursor: pointer;
   text-decoration: none;
+  border:1px solid var(--colorLabel);
+  border-radius:var(--lengthSm2);
 }
 
 .btn-outline-primary {
@@ -58,6 +60,20 @@ code {
   color:var(--primary);
 }
 
+.btn-scroll-up {
+  background-color: var(--colorText);
+  color: var(--white);
+  position: fixed;
+  bottom: 2%;
+  right:3%;
+  border:none;
+  padding: var(--lengthSm1) var(--lengthSm3);
+}
+
+.btn-scroll-up:focus {
+  outline: none;
+  background-color: ;
+}
 /* Navigation bar */
 .navbar {
   position: fixed;
@@ -192,7 +208,7 @@ code {
 
   .navbar.backdrop {
     background-color: var(--colorText);
-    box-shadow: 2px 2px var(--lengthSm3) var(--colorLabel);
+    box-shadow: 2px 2px var(--lengthSm3) var(--black);
   }
 
   .navbar .navbar-toggler {
