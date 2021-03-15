@@ -61,6 +61,25 @@ code {
 /* Navigation bar */
 .navbar {
   position: fixed;
+  background-color: var(--colorText);
+  width: 100%;
+  z-index: 3;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--lengthSm2);
+}
+
+.navbar-brand .logo {
+  color:var(--white);
+}
+
+.navbar-brand .logo img{
+  width: 48px;
+  height: 48px;
 }
 
 .navbar .navbar-toggler {
@@ -70,6 +89,10 @@ code {
   display: flex;
   flex-direction: column;
   margin:var(--lengthSm2) !important;
+}
+
+.navbar-toggler:focus {
+  outline: none;
 }
 
 .navbar-toggler span {
@@ -88,6 +111,7 @@ code {
 
 .navbar-nav .nav-item {
   padding:var(--lengthSm1) var(--lengthSm3);
+  width: 100%;
 }
 
 .navbar-item:hover {
@@ -119,7 +143,7 @@ code {
 }
 
 .about-description {
-  font-size: var(--lengthMd2);
+  font-size: var(--lengthMd1);
 }
 
 /* project list  */
@@ -132,6 +156,7 @@ code {
 
 .cards .card {
   margin:var(--lengthSm3) 0;
+  box-shadow: 2px 2px 0.4em var(--colorDisabled);
 }
 
 /* footer section */
@@ -161,6 +186,8 @@ code {
   .navbar {
     transition:all 0.5s;
     z-index: 3;
+    display: flex;
+    background-color: transparent;
   }
 
   .navbar.backdrop {
@@ -177,17 +204,27 @@ code {
     border-bottom: 1px solid var(--primary);
   }
 
+  .navbar-nav .nav-item {
+    width: auto;
+  }
+
   .navbar-nav .nav-item .nav-link {
     font-weight: normal;
     font-size: var(--lengthMd1);
   }
 
   .cards {
-    flex-direction: row;
-    justify-content: flex-start;
+    /* flex-direction: row;
+    justify-content: flex-start; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .cards .card + .card {
     margin:var(--lengthSm1) var(--lengthSm3);
+  }
+
+  .card img {
+    width:100%;
   }
 }

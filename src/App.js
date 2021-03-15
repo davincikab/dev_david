@@ -1,41 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Navigation from './components/Navigation';
 import { useEffect, useState } from 'react';
+import { Link, animateScroll as scroll } from 'react-scroll';
+
+import { projects } from './utils/mock';
+
+import logo from './diamond.png';
 
 const APP_STATE = {
   updateNav:false
 };
-
-const projects = [
-  {
-    'id':1,
-    'title':"Route Animation",
-    'date':"2021-02-23T06:00.000Z",
-    'platform':"Fiverr",
-    'projectUrl':'',
-    'images':[
-      "https://picsum.photos/id/237/350/300",
-      "https://picsum.photos/id/234/350/300",
-      "https://picsum.photos/id/232/350/300",
-      "https://picsum.photos/id/231/350/300",
-    ]
-  },
-
-  {
-    'id':2,
-    'title':"React Blog",
-    'date':"2021-02-23T06:00.000Z",
-    'platform':"Fiverr",
-    'projectUrl':'',
-    'images':[
-      "https://picsum.photos/id/244/350/300",
-      "https://picsum.photos/id/225/350/300",
-      "https://picsum.photos/id/227/350/300",
-      "https://picsum.photos/id/229/350/300",
-    ]
-  }
-];
 
 function App() {
   const [ state, setState ] = useState(APP_STATE);
@@ -68,6 +42,11 @@ function App() {
 
   }
 
+  // scroll
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  }
+
   return (
     <div className="App">
       <Navigation updateNav={state.updateNav} />
@@ -78,9 +57,9 @@ function App() {
             I am Web and GIS Developer
           </p>
 
-          <a className="btn btn-outline-primary" href="#projects">
+          <Link className="btn btn-outline-primary" to="projects">
               EXPLORE PROJECTS
-          </a>
+          </Link>
          
         </div>
 
@@ -126,8 +105,15 @@ function App() {
            <div>
              <i className="fa fa-gmail"></i>
            </div>
+
+           <div className="about-description text-left">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec malesuada ex, eget vestibulum dolor. Mauris arcu lectus, facilisis eu ipsum id, iaculis posuere arcu. Sed luctus nunc ac ipsum cursus porttitor. 
+            Donec felis magna, venenatis at felis eget, eleifend commodo sem. 
+          </div>
           </div>
         </div>
+
+        {/* scrollToTop */}
 
       </main>
 

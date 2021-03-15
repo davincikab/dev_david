@@ -27,6 +27,21 @@
 .description {
   text-align: left;
   padding: var(--lengthMd2);
+  transition: all 1s;
+  transform: translate(0em, 0px);
+  animation: easing;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+}
+
+@keyframes easing {
+  from {
+    transform: translate(-2.5em, 0px);
+  }
+  to {
+    transform: translate(0em, 0px);
+  }
 }
 
 .description h3 {
