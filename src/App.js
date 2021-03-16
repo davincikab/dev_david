@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 // 3rd party
 import { Link, animateScroll as scroll } from 'react-scroll';
-import { FaCaretUp } from 'react-icons/fa';
+import { FaCaretUp, FaPlus, FaLinkedin, FaGoogle, FaTwitter } from 'react-icons/fa';
 
 // local code
 import { projects } from './utils/mock';
@@ -29,7 +29,7 @@ function App() {
   // 
   const handleScroll = (e) => {
     let height = e.target.scrollingElement.scrollTop;
-    if(height > 180 && !state.updateNav) {
+    if(height > 180) {
       setState({
         ...state,
         updateNav:true
@@ -90,39 +90,35 @@ function App() {
        
         <div className="section text-left" id="projects">
           <h3 className="title">PROJECTS</h3>
+          <div className="d-flex project-filter">
+              <div className="category">All</div>
+              <div className="category">Mapbox</div>
+              <div className="category">Leaflet</div>
+              <div className="category">Google Maps</div>
+              <div className="category">D3js</div>
+              <div className="category">React</div>
+          </div>
           <div className="cards">
             {/* list of projects */}
             {projects.map(project => (
               <div className="card" key={project.id}>
                   <img src={project.images[0]} alt={project.title} />
-                  <div>{project.title}</div>
+                  
+                  <div className="project-title">{project.title}</div>
+                  <div className="card-backdrop">
+                    <button className="btn">
+                      <FaPlus />
+                    </button>
+                  </div>
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="section text-left" id="contact">
-          <h3 className="title">CONTACTS</h3>
-          <div className="text-left">
-           <div>
-             <i className="fa fa-twitter"></i>
-           </div>
-
-           <div>
-             <i className="fa fa-fiverr"></i>
-           </div>
-
-           <div>
-             <i className="fa fa-gmail"></i>
-           </div>
-
-           <div className="about-description text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec malesuada ex, eget vestibulum dolor. Mauris arcu lectus, facilisis eu ipsum id, iaculis posuere arcu. Sed luctus nunc ac ipsum cursus porttitor. 
-            Donec felis magna, venenatis at felis eget, eleifend commodo sem. 
+          
+          <div className="d-flex more-section">
+            <button  className="btn btn-outline-primary">View More</button>
           </div>
-          </div>
+          
         </div>
-
         {/* scrollToTop */}
 
         { state.updateNav && 
@@ -135,7 +131,29 @@ function App() {
       </main>
 
       <footer className="footer">
-        David Njeri. &copy;2020.
+        <p>David Njeri. &copy;2020.</p>
+        <div className="social-links text-left">
+           <div>
+             <a href="https://twitter.com/DavidNg96191301">
+              <FaTwitter />
+             </a>
+             
+           </div>
+
+           <div>
+             <a href="https://www.linkedin.com/in/david-njeri-b54022199/">
+              <FaLinkedin />
+             </a>
+             
+           </div>
+
+           <div>
+              <a href=""> 
+                <FaGoogle /> 
+              </a>
+           </div>
+
+        </div>
       </footer>
     </div>
   );

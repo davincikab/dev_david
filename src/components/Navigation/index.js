@@ -75,18 +75,6 @@ function Navigation(props) {
                     duration={500}
                 >Projects</Link>
               </li>
-              <li className={ state.active === "contact" ? "nav-item active" : "nav-item" }>
-               
-                <Link 
-                    className="nav-link"
-                    activeClass="active"
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                >Contact</Link>
-              </li>
           </ul>
           }
       </div>
