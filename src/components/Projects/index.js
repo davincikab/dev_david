@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { FaPlus } from 'react-icons/fa';
+// 3rd party Components
+import { FaChevronLeft, FaPlus, FaChevronRight, FaTimes } from 'react-icons/fa';
+import { CarouselProvider, Slider, Slide, Image, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 function Project(props) {
     const [ state, setState ] = useState({
@@ -10,7 +13,9 @@ function Project(props) {
         activeProjects:props.projects.slice(0, 3),
         currentIndex:3,
         paginateBy:3,
-        activeCategory:"All"
+        activeCategory:"All",
+        activeItem:{},
+        isCarouselOpen:false
     });
 
      // load more data
@@ -64,6 +69,25 @@ function Project(props) {
         });
     }
 
+    // display carousel
+    const toggleCarousel = (id) => {
+        // get the active 
+        let activeItem = state.projects.find(project => project.id == id);
+
+        setState({
+            ...state,
+            activeItem,
+            isCarouselOpen:true
+        })
+    }
+
+    const closeCarousel = (evt) => {
+        setState({
+            ...state,
+            isCarouselOpen:false
+        })
+    }
+
     // return active classes
     const getClasses = (category) => {
         let { activeCategory } = state;
@@ -91,7 +115,7 @@ function Project(props) {
                   
                   <div className="project-title">{project.title}</div>
                   <div className="card-backdrop">
-                    <button className="btn">
+                    <button className="btn" onClick={() => toggleCarousel(project.id)}>
                       <FaPlus />
                     </button>
                   </div>
@@ -102,6 +126,13 @@ function Project(props) {
           <div className="d-flex more-section">
             <button  className="btn btn-outline-primary" onClick={loadMore}>View More</button>
           </div>
+          {
+              state.isCarouselOpen &&
+              <CarouselContainer 
+                item={state.activeItem}
+                toggleCarousel={closeCarousel}
+              />
+          }
           
         </div>
     )
@@ -111,5 +142,41 @@ Project.propTypes = {
     projects:PropTypes.array,
 };
 
+
+const CarouselContainer = (props) => {
+    return (
+        <div className="carousel-container">
+            <button 
+                className="btn btn-close"
+                onClick={props.toggleCarousel}
+                >
+                <FaTimes />
+            </button>
+
+            <CarouselProvider
+                naturalSlideWidth={100}
+                naturalSlideHeight={125}
+                totalSlides={3}
+                isPlaying={true}
+            >
+                <Slider>
+                    {props.item.images.map((image, index) => (
+                        <Slide index={index} key={index}>
+                            <Image src={image} />
+                            I am the first Slide.
+                        </Slide>
+                    ))}
+                </Slider>
+
+                <ButtonBack className="btn btn-back">
+                    <FaChevronLeft />
+                </ButtonBack>
+                <ButtonNext className="btn btn-next">
+                    <FaChevronRight />
+                </ButtonNext>
+            </CarouselProvider>
+        </div>
+    )
+}
 
 export default Project;
