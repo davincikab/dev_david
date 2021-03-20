@@ -4,18 +4,22 @@ import { useEffect, useState } from 'react';
 
 // 3rd party
 import { Link, animateScroll as scroll } from 'react-scroll';
-import { FaCaretUp, FaPlus, FaLinkedin, FaGoogle, FaTwitter } from 'react-icons/fa';
+import { FaCaretUp, FaLinkedin, FaGoogle, FaTwitter } from 'react-icons/fa';
 
 // local code
 import { projects } from './utils/mock';
 import logo from './diamond.png';
 
+// components
+import Project from './components/Projects';
+
 const APP_STATE = {
-  updateNav:false
+  updateNav:false, 
+  projects:projects,
 };
 
 function App() {
-  const [ state, setState ] = useState(APP_STATE);
+  const [ state, setState ] = useState(Object.assign({}, APP_STATE));
 
   // 
   useEffect(function() {
@@ -26,12 +30,14 @@ function App() {
     }
   }, []);
 
-  // 
+  // scroll button
   const handleScroll = (e) => {
     let height = e.target.scrollingElement.scrollTop;
+
+    // 
     if(height > 180) {
       setState({
-        ...state,
+        ...Object.assign({}, state),
         updateNav:true
       })
     } else {
@@ -42,13 +48,13 @@ function App() {
       })
     }
 
-
   }
 
   // scroll
   const scrollToTop = () => {
     scroll.scrollToTop();
   }
+
 
   return (
     <div className="App">
@@ -87,38 +93,10 @@ function App() {
             Donec felis magna, venenatis at felis eget, eleifend commodo sem. 
           </div>
         </div>
-       
-        <div className="section text-left" id="projects">
-          <h3 className="title">PROJECTS</h3>
-          <div className="d-flex project-filter">
-              <div className="category">All</div>
-              <div className="category">Mapbox</div>
-              <div className="category">Leaflet</div>
-              <div className="category">Google Maps</div>
-              <div className="category">D3js</div>
-              <div className="category">React</div>
-          </div>
-          <div className="cards">
-            {/* list of projects */}
-            {projects.map(project => (
-              <div className="card" key={project.id}>
-                  <img src={project.images[0]} alt={project.title} />
-                  
-                  <div className="project-title">{project.title}</div>
-                  <div className="card-backdrop">
-                    <button className="btn">
-                      <FaPlus />
-                    </button>
-                  </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="d-flex more-section">
-            <button  className="btn btn-outline-primary">View More</button>
-          </div>
-          
-        </div>
+
+        <Project
+          projects={state.projects}
+        />
         {/* scrollToTop */}
 
         { state.updateNav && 

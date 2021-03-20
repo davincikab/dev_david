@@ -1,8 +1,9 @@
 const projects = [
     {
       'id':1,
-      'title':"Route Animation",
+      'title':"D3js Application",
       'date':"2021-02-23T06:00.000Z",
+      'category':"D3js",
       'platform':"Fiverr",
       'projectUrl':'',
       'images':[
@@ -15,8 +16,9 @@ const projects = [
   
     {
       'id':2,
-      'title':"React Blog",
+      'title':"Google Maps",
       'date':"2021-02-23T06:00.000Z",
+      'category':"Google Maps",
       'platform':"Fiverr",
       'projectUrl':'',
       'images':[
@@ -28,8 +30,9 @@ const projects = [
     },
     {
       'id':3,
-      'title':"React Blog",
+      'title':"Leaflet Choropleth",
       'date':"2021-02-23T06:00.000Z",
+      'category':"Leaflet",
       'platform':"Fiverr",
       'projectUrl':'',
       'images':[
@@ -41,8 +44,9 @@ const projects = [
     },
     {
       'id':4,
-      'title':"React Blog",
+      'title':"Mapbox Animation",
       'date':"2021-02-23T06:00.000Z",
+      'category':"Mapbox",
       'platform':"Fiverr",
       'projectUrl':'',
       'images':[
@@ -56,6 +60,7 @@ const projects = [
       'id':5,
       'title':"React Blog",
       'date':"2021-02-23T06:00.000Z",
+      'category':'React',
       'platform':"Fiverr",
       'projectUrl':'',
       'images':[

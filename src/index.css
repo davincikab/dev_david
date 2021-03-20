@@ -209,8 +209,11 @@ code {
 .card .btn {
   border-radius: var(--lengthMd1);
   padding: var(--lengthSm2) var(--lengthSm2);
-  color:var(--white);
-  border:none;
+  color: var(--white);
+  border: none;
+  height: 35px;
+  width: 35px;
+  text-align: center;
 }
 
 .project-title {
@@ -222,6 +225,7 @@ code {
   width: 100%;
   background-color: var(--primary);
   padding:var(--lengthSm2);
+  color:var(--white);
 }
 
 .more-section {
@@ -323,9 +327,17 @@ code {
 
   .project-filter div {
     font-weight: 600;
-    font-size: var(--lengthMd2);
+    font-size: var(--lengthMd1);
     margin: var(--lengthSm1) var(--lengthMd2);
     cursor: pointer;
+  }
+
+  .category.active {
+    background-color: var(--primary);
+    padding: 0.25em 1em;
+    border-radius: 0.95em;
+    color: white;
+    font-size: 1rem;
   }
 
   .cards {
