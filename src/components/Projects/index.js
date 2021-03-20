@@ -9,23 +9,22 @@ function Project(props) {
         isListComplete:false,
         activeProjects:props.projects.slice(0, 3),
         currentIndex:3,
-        paginateBy:3
+        paginateBy:3,
+        activeCategory:"All"
     });
 
+     // load more data
     const loadMore = () => {
-        // load more data
-        console.log("Load More Projects");
-        const { paginateBy, projects, currentIndex } = state;
+        const { paginateBy, projects, currentIndex, category} = state;
         let index = currentIndex + paginateBy;
+        let activeProjects;
 
-        if(projects.length > index) {}
-        
-        // load more projects by paginate
-        let activeProjects = projects.slice(currentIndex, index);
-
-        console.log(activeProjects);
-        console.log(index);
-        console.log("Home Coming: " + [...state.activeProjects, ...activeProjects].length);
+        if(category !== "All") {
+            activeProjects = projects.filter(project => project.category == category).slice(currentIndex, index);
+        } else{
+            // load more projects by paginate
+            activeProjects = projects.slice(currentIndex, index);
+        }
 
         // update projects 
         setState({
@@ -34,7 +33,6 @@ function Project(props) {
             activeProjects:[...state.activeProjects, ...activeProjects]
         });
         
-
     };
 
     // filter by category
@@ -66,6 +64,7 @@ function Project(props) {
         });
     }
 
+    // return active classes
     const getClasses = (category) => {
         let { activeCategory } = state;
         return activeCategory === category ? "category active" : "category";
