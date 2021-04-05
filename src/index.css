@@ -328,8 +328,11 @@ code {
 /* footer section */
 .footer {
   background-color: var(--colorLabel);
-  color:var(--white);
+  color: var(--white);
   padding: var(--lengthSm3);
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
 }
 
 .footer > p {
@@ -398,6 +401,10 @@ code {
     cursor: pointer;
   }
 
+  .category {
+    margin:0 1em;
+  }
+
   .category.active {
     background-color: var(--primary);
     padding: 0.25em 1em;
@@ -434,6 +441,7 @@ code {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-direction: row;
     background-color: var(--white);
     color:var(--colorText);
     box-shadow: 2px 0px 1.3em var(--colorLabel);

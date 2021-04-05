@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import pageLogo from '../../diamond.png';
 
+import {isMobile, isBrowser} from 'react-device-detect';
+
 const STATE = {
-    isNavOpen:true,
-    isMobile:true,
+    isNavOpen:false,
+    isMobile:isMobile,
     active:'home'
 };
 
@@ -19,6 +21,14 @@ function Navigation(props) {
       });
   
     };
+
+    useEffect(function(){
+      setState({
+        ...state,
+        isNavOpen:isBrowser
+      });
+
+    }, []);
 
     const classes = props.updateNav ? "navbar backdrop" : "navbar";
 

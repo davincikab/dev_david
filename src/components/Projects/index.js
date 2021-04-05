@@ -20,12 +20,15 @@ function Project(props) {
 
      // load more data
     const loadMore = () => {
-        const { paginateBy, projects, currentIndex, category} = state;
+        const { paginateBy, projects, currentIndex, activeCategory } = state;
         let index = currentIndex + paginateBy;
         let activeProjects;
 
-        if(category !== "All") {
-            activeProjects = projects.filter(project => project.category == category).slice(currentIndex, index);
+        // check if index is larger than length;
+        index = index > projects.length ? projects.length : index;
+
+        if(activeCategory !== "All") {
+            activeProjects = projects.filter(project => project.category === activeCategory).slice(currentIndex, index);
         } else{
             // load more projects by paginate
             activeProjects = projects.slice(currentIndex, index);
@@ -45,7 +48,6 @@ function Project(props) {
         // filter the projects
         const { projects, paginateBy } = state;
 
-        console.log(category);
         if(category === "All") {
             setState({
                 ...state,
