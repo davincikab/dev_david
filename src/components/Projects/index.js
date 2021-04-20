@@ -74,7 +74,7 @@ function Project(props) {
     // display carousel
     const toggleCarousel = (id) => {
         // get the active 
-        let activeItem = state.projects.find(project => project.id == id);
+        let activeItem = state.projects.find(project => project.id === id);
 
         setState({
             ...state,
@@ -113,7 +113,16 @@ function Project(props) {
             {/* list of projects */}
             {activeProjects.map(project => (
               <div className="card" key={project.id}>
-                  <img src={project.images[0]} alt={project.title} />
+                {
+                    project.images[0].includes("https") && 
+                    <img src={project.images[0]} alt={project.title} />
+                }
+
+                {
+                    !project.images[0].includes("https") && 
+                    <img src={process.env.PUBLIC_URL + project.images[0]} alt={project.title} />
+                }
+                  
                   
                   <div className="project-title">{project.title}</div>
                   <div className="card-backdrop">
@@ -165,7 +174,17 @@ const CarouselContainer = (props) => {
                     {props.item.images.map((image, index) => (
                         <Slide index={index} key={index}>
                             <Image src={image} />
-                            I am the first Slide.
+
+                            {
+                                image.includes("https") && 
+                                <Image src={image} />
+                            }
+
+                            {
+                                !image.includes("https") && 
+                                <img src={process.env.PUBLIC_URL + image} alt={props.item.title} />
+                            }
+                            {props.item.title}
                         </Slide>
                     ))}
                 </Slider>

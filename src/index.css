@@ -195,6 +195,9 @@ code {
 
 .card img {
   transition-duration: 0.5s;
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .card:hover .card-backdrop {
@@ -425,7 +428,9 @@ code {
   }
 
   .card img {
-    width:100%;
+      height: 300px;
+      width: 350px;
+      object-fit: cover;
   }
 
   /* carousel */
@@ -434,6 +439,13 @@ code {
     width: 80% !important;
     left: 10% !important;
     top:0% !important
+  }
+
+  .carousel__inner-slide .image___xtQGH {
+    display: block;
+    height: 80%;
+    width: 90%;
+    object-fit: cover;
   }
 
   /* footer */
