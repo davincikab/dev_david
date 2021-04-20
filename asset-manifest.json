@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/dev-david/static/css/main.04186172.chunk.css",
+    "main.js": "/dev-david/static/js/main.8e0aef51.chunk.js",
+    "main.js.map": "/dev-david/static/js/main.8e0aef51.chunk.js.map",
+    "runtime-main.js": "/dev-david/static/js/runtime-main.7f5924d2.js",
+    "runtime-main.js.map": "/dev-david/static/js/runtime-main.7f5924d2.js.map",
+    "static/css/2.74c64b29.chunk.css": "/dev-david/static/css/2.74c64b29.chunk.css",
+    "static/js/2.917ae9e5.chunk.js": "/dev-david/static/js/2.917ae9e5.chunk.js",
+    "static/js/2.917ae9e5.chunk.js.map": "/dev-david/static/js/2.917ae9e5.chunk.js.map",
+    "static/js/3.fbeb5f47.chunk.js": "/dev-david/static/js/3.fbeb5f47.chunk.js",
+    "static/js/3.fbeb5f47.chunk.js.map": "/dev-david/static/js/3.fbeb5f47.chunk.js.map",
+    "index.html": "/dev-david/index.html",
+    "static/css/2.74c64b29.chunk.css.map": "/dev-david/static/css/2.74c64b29.chunk.css.map",
+    "static/css/main.04186172.chunk.css.map": "/dev-david/static/css/main.04186172.chunk.css.map",
+    "static/js/2.917ae9e5.chunk.js.LICENSE.txt": "/dev-david/static/js/2.917ae9e5.chunk.js.LICENSE.txt",
+    "static/media/diamond.673a1a38.png": "/dev-david/static/media/diamond.673a1a38.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7f5924d2.js",
+    "static/css/2.74c64b29.chunk.css",
+    "static/js/2.917ae9e5.chunk.js",
+    "static/css/main.04186172.chunk.css",
+    "static/js/main.8e0aef51.chunk.js"
+  ]
+}
